@@ -5,10 +5,7 @@ var beerSchema = new Schema({
   name:  String,
   abv: Number,
   price: Number,
-  brewery: {
-    type: Schema.Types.ObjectId,
-    ref: 'Brewery'
-  },
+  brewery: String,
   style: {
     type: Schema.Types.ObjectId,
     ref: 'Style'
