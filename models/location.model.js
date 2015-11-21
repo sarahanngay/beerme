@@ -4,6 +4,8 @@ var Schema = mongoose.Schema;
 var locationSchema = new Schema({
   name: String,
 
+  vicinity: String,
+
   links: {
     google: Schema.Types.Mixed
   },
@@ -20,6 +22,8 @@ var locationSchema = new Schema({
   //   ref: 'Beer'
   // }]
 });
+
+locationSchema.index({name: 1, vicinity: 1}, {unique: true});
 
 var Location = mongoose.model('Location', locationSchema);
 
