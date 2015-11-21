@@ -24,6 +24,7 @@ router.get('/typeahead', function (req, res, next) {
   var beer = req.query.beer;
   var name = req.query.name;
   var cat  = req.query.category;
+  var style = req.query.style;
 
   var regex = RegExp(name, 'i');
 
@@ -42,6 +43,11 @@ router.get('/typeahead', function (req, res, next) {
   if (cat) {
     regex = RegExp(cat, 'i');
     search = {category: { $regex: regex }};
+  }
+
+  if (style) {
+    regex = RegExp(style, 'i');
+    search = {style: { $regex: regex }};
   }
 
   return Beer.find(search, function (error, beers) {
