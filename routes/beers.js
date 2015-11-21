@@ -6,6 +6,7 @@ var Beer       = require('../models/beer.model');
 var _          = require('lodash');
 var fs         = require('fs');
 var categories = JSON.parse(fs.readFileSync('./categories.json'));
+var styles     = JSON.parse(fs.readFileSync('./styles.json'));
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -58,6 +59,14 @@ router.get('/categories', function (req, res, next) {
   })
 
   return res.send(category_ar);
+});
+
+router.get('/styles', function (req, res, next) {
+  var styles_ar = _.map(styles, function (style) {
+    return style.style_name;
+  })
+
+  return res.send(styles_ar);
 });
 
 module.exports = router;
