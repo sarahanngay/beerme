@@ -15,4 +15,16 @@ router.get('/', function(req, res, next) {
   })
 });
 
+router.get('/typeahead', function (req, res, next) {
+  var regex = RegExp(req.query.name, 'i');
+
+  return Beer.find({$or:[ {'name':{ $regex: regex }}, {'brewery':{ $regex: regex }}]}, function (error, beers) {
+    if (error) {
+      return console.error("Could not query beers.", error);
+    } else {
+      return res.send(beers);
+    }
+  })
+});
+
 module.exports = router;
