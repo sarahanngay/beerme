@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var beers = require('./routes/beers');
 
 var dbConfig = require('./config/database.config');
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/beers', beers);
 
 // FIXME move somewhere else
 mongoose.connect(dbConfig.url, function(err) {
