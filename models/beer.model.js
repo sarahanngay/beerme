@@ -6,10 +6,8 @@ var beerSchema = new Schema({
   abv: Number,
   price: Number,
   brewery: String,
-  style: {
-    type: Schema.Types.ObjectId,
-    ref: 'Style'
-  }
+  style: String,
+  category: String
 });
 
 var Beer = mongoose.model('Beer', beerSchema);
