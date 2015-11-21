@@ -1,7 +1,0 @@
-{
-  "development": {
-    "database": "database_development",
-    "storage": "db/development.sqlite",
-    "dialect": "sqlite"
-  }
-}
