@@ -32,6 +32,13 @@ app.use('/users', users);
 app.use('/beers', beers);
 app.use('/locations', locations);
 
+mongoose.connect(dbConfig.url, function(err) {
+  if (err) {
+    console.error('Could not connect to MongoDB!');
+    console.log(err);
+  }
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

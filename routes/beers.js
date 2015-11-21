@@ -12,6 +12,7 @@ router.get('/', function(req, res, next) {
     } else {
       return res.send(beers);
     }
+  })
 });
 
 module.exports = router;
