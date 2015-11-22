@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var bluebird = require('bluebird');
+var _ = require('lodash');
 
 mongoose.Promise = bluebird;
 
@@ -38,8 +39,12 @@ router.get('/', function(req, res, next) {
 
     Location
       .geoNear(point, cmd)
-      .then(function(locations) {
-        res.status(200).json(locations);
+      .then(function(geoObj) {
+        res.status(200).json(_.map(geoObj, function (geoObjItem) {
+          var obj = geoObjItem.obj;
+          obj.distance = geoObjItem.dis;
+          return obj;
+        }));
       });
   } else {
     Location

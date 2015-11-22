@@ -20,7 +20,9 @@ var locationSchema = new Schema({
   beers: [{
     type: Schema.Types.ObjectId,
     ref: 'Beer'
-  }]
+  }],
+
+  distance: Number
 });
 
 locationSchema.index({name: 1, vicinity: 1}, {unique: true});
