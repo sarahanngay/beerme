@@ -10,7 +10,7 @@ var styles     = JSON.parse(fs.readFileSync('./styles.json'));
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  return Beer.find({}, function (error, beers) {
+  return Beer.find({}, {r: 0}, function (error, beers) {
     if (error) {
       return console.error("Could not query beers.", error);
     } else {
@@ -50,7 +50,7 @@ router.get('/typeahead', function (req, res, next) {
     search = {style: { $regex: regex }};
   }
 
-  return Beer.find(search, function (error, beers) {
+  return Beer.find(search, {r: 0}, function (error, beers) {
     if (error) {
       return console.error("Could not query beers.", error);
     } else {

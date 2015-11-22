@@ -14,9 +14,11 @@
     "cors": "^2.7.1",
     "debug": "~2.2.0",
     "express": "~4.13.1",
+    "faker": "^3.0.1",
     "jade": "~1.11.0",
     "lodash": "^3.10.1",
     "mongoose": "^4.2.7",
+    "mongoose-random": "^0.1.1",
     "morgan": "~1.6.1",
     "request-promise": "^1.0.2",
     "serve-favicon": "~2.3.0"

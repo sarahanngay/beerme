@@ -15,12 +15,12 @@ var locationSchema = new Schema({
     index: {
       type: '2dsphere'
     }
-  }
+  },
 
-  // beers: [{
-  //   type: Schema.Types.ObjectId,
-  //   ref: 'Beer'
-  // }]
+  beers: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Beer'
+  }]
 });
 
 locationSchema.index({name: 1, vicinity: 1}, {unique: true});
